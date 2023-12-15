@@ -1,0 +1,8 @@
+/home/ilya/study/pp/lab1/build/CMakeFiles/edit_cache.dir
+/home/ilya/study/pp/lab1/build/CMakeFiles/rebuild_cache.dir
+/home/ilya/study/pp/lab1/build/src/CMakeFiles/lab1_lib.dir
+/home/ilya/study/pp/lab1/build/src/CMakeFiles/edit_cache.dir
+/home/ilya/study/pp/lab1/build/src/CMakeFiles/rebuild_cache.dir
+/home/ilya/study/pp/lab1/build/tests/CMakeFiles/lab1_tst.dir
+/home/ilya/study/pp/lab1/build/tests/CMakeFiles/edit_cache.dir
+/home/ilya/study/pp/lab1/build/tests/CMakeFiles/rebuild_cache.dir
