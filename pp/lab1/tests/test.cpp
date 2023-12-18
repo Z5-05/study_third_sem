@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <stack>
+#include <limits.h>
 #include <string>
 
 void fail(const char *message) {
@@ -15,10 +16,10 @@ namespace internal_tests {
     void check_methods() {
         int i, n = 10;
         int elems[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int value1, value2;
+        std::optional<int> value1;
+        int value2;
 
-        std::atomic<Stack_lf<int>> stack1;
-        Stack
+        Stack_lf<int> stack1;
         std::stack<int> stack2;
         for (i = 0; i < n; ++i)
         {
@@ -28,8 +29,7 @@ namespace internal_tests {
             value2 = stack2.top();
             stack1.pop();
             stack2.pop();
-            std::cout << value1 << value2 << std::endl;
-            if (value1 != value2)
+            if (value1 != value1.value_or(INT_MIN))
                 fail("values are not equal!");
         }
     }
@@ -38,7 +38,7 @@ namespace internal_tests {
        int i, n = 10;
        int elems[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
        bool flag;
-       std::atomic<Stack_lf<int>*> stack;
+       Stack_lf<int> stack;
 
        for (i = 0; i < n; ++i)
         stack.push(elems[i]);
@@ -46,12 +46,12 @@ namespace internal_tests {
        for (i = 0; i < n; ++i)
        {
             flag = stack.isEmpty();
-            if (flag)
-                fail("Empty stack return not null!");
+            if (!flag)
+                fail("Non empty stack returns null!");
             stack.pop();
        }
        if (!flag)
-            fail("Empty stack return not null!");
+            fail("Empty stack returns not null!");
     }
 
     void all_tests() {

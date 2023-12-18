@@ -4,19 +4,17 @@
 #include "node.h"
 #include <atomic>
 #include <optional>
-#include <cstddef>
-#include <iostream>
 
 template <typename T>
 class Stack_lf {
     public:
-        tagged_ptr<T> head;
+        std::atomic<Node<T>*> head;
         
         /* methods */
-        void push(T);
+        void push(const T& value);
         void pop();
         bool isEmpty();
-        T top();
+        std::optional<T> top();
 
         Stack_lf();
         ~Stack_lf();
